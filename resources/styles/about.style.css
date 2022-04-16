@@ -1,0 +1,30 @@
+/* Импорт родительского класса */
+@import url(style.css);
+
+/* Применение своих параметров к блоку заголовка */
+.title-container {
+}
+
+/* Применение своих параметров к блоку описания */
+.description-container {
+}
+
+/* Переопределение размера блока текста описания (возможно изменение размера 700px) */
+.title-menu {
+    width: 700px;
+}
+
+/* Прекращение центрирования (возможно изменение предела 700px) */
+@media (max-width: 700px) {
+    .contents {
+        position: absolute;
+    }
+
+    .title-menu {
+        width: 100%;
+        left: 0;
+        top: 0;
+        -webkit-transform: translate(0, calc(-50% + 33px));
+        transform: translate(0, calc(-50% + 33px));
+    }
+}

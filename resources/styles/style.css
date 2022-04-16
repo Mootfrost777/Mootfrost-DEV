@@ -1,0 +1,150 @@
+/* Импорт класса шрифтов */
+@import url(../fonts/tisa-sans-pro/style.css);
+
+/* Применение своих параметров к блоку заголовка на всех страницах */
+.title-div {
+
+}
+
+/* Применение своих параметров к блоку контента на всех страницах */
+.contents-div {
+
+}
+
+/* Стили после этого комментария редактированию НЕ ПОДЛЕЖАТ */
+
+html, body {
+    font-family: 'Tisa Sans Pro Light';
+    background-color: #cdcdcd;
+    height: 99%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.particles-js-canvas-el {
+    max-height: 99%;
+}
+
+h1 {
+    font-size: 72px;
+}
+
+p, a {
+    font-size: 20px;
+    color: black;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.footer-text {
+    margin: 10px;
+    font-weight: lighter;
+    font-family: "Tisa Sans Pro";
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.top {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+.horizontal-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.vertical-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: auto;
+}
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    margin: 0;
+}
+
+.contents {
+    margin: 0;
+}
+
+.unselectable {
+    -webkit-user-select: none;    
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.button-div {
+    background-color: black;
+    padding: 10px;
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin: 5px;
+    width: 200px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.button-div:hover {
+    background-color: #444;
+    transform: scale(1.1);
+}
+
+.circle-button-div {
+    border-radius: 75px;
+    width: 75px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.button-image-link {
+    width: 75px;
+    height: 75px;
+}
+
+.button-image {
+    height: 100%;
+
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(299deg) brightness(102%) contrast(102%);
+}
+.title-menu {
+    margin: 10px;
+}
+
+@media (max-width: 700px) {
+    h1 {
+        font-size: 64px;
+    }
+
+    p, a {
+        font-size: 16px;
+    }
+}

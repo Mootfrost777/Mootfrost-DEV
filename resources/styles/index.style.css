@@ -1,0 +1,28 @@
+@import url(style.css);
+
+/* Применение своих параметров к блоку заголовка */
+.title-container {
+
+}
+
+/* Применение своих параметров к блоку ссылок на социальные сети */
+.socials-container {
+
+}
+
+/* Применение своих параметров к блоку ссылок на страницы */
+.links-container {
+    margin-top: 20px;
+}
+
+/* Стили после этого комментария редактированию НЕ ПОДЛЕЖАТ */
+
+.links-container a {
+    text-decoration: none;
+    color: white;
+}
+
+.title-menu {
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0);
+}
