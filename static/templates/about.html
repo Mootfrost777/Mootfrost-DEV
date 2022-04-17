@@ -2,8 +2,8 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="resources/styles/about.style.css"/>
-        <link rel="icon" type="image/x-icon" href="resources/images/favicon.png">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/resources/styles/about.style.css') }}"/>
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='/resources/images/favicon.png') }}">
         <title>Mootfrost — About</title>
         <meta name="description" content="About mootfrost.">
     </head>
@@ -23,7 +23,7 @@
             <p class="footer-text">v.0.1</a></p>
         </footer>
 
-        <script src="resources/scripts/plugins/particles/particles.min.js"></script>
-        <script src="resources/scripts/script.js"></script>
+        <script src="{{ url_for('static', path='/resources/scripts/plugins/particles/particles.min.js ') }}"></script>
+        <script src="{{ url_for('static', path='/resources/scripts/script.js') }}"></script>
     </body>
 </html>

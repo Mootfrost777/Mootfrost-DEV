@@ -1,0 +1,56 @@
+@import url(style.css);
+
+
+.title-div {
+
+}
+
+.projects-container {
+    box-sizing: border-box;
+    width: 1320px;
+    overflow-wrap: anywhere;
+    font-family: "Tisa Sans Pro";
+}
+
+.project-container {
+        flex-flow: row wrap;
+    width: 300px;
+    height: 150px;
+    background-color: black;
+    text-align: left;
+}
+
+.project-container:hover {
+    transform: scale(1.1);
+}
+
+.projects-contents {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.projects-title {
+    font-size: 21px;
+    font-weight: bolder;
+}
+
+@media (max-width: 1330px) {
+    .projects-container {
+        width: 1000px;
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .projects-container {
+        width: 700px;
+    }
+}
+
+@media (max-width: 700px) {
+    .projects-container {
+        width: 400px;
+    }
+}

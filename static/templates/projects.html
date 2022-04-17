@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/resources/styles/projects.style.css') }}"/>
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='/resources/images/favicon.png') }}">
+        <title>Mootfrost</title>
+        <meta name="description" content="mootfrost.">
+    </head>
+    <body id="particles-js">
+    <div class="title-menu top">
+        <div class="title-div title-container">
+            <h1 class="title unselectable">projects:</h1>
+        <div class="contents-div projects-container horizontal-container" id="projects-list">
+           <!-- <a href="https://google.com" class="projects-contents"><div class="button-div project-container">
+                <h2 class="projects-title">Name</h2>
+                <p class="projects-contents">Description</p>
+            </div></a>  -->
+        </div>
+        </div>
+    </div>
+
+    <footer>
+        <p class="footer-text">v.0.1</a></p>
+    </footer>
+
+    <script src="{{ url_for('static', path='/resources/scripts/plugins/particles/particles.min.js ') }}"></script>
+    <script src="{{ url_for('static', path='/resources/scripts/script.js') }}"></script>
+    <script>
+        async function load_projects()
+        {
+            let resp = await fetch('/api/get_repos', {
+                method: 'GET',
+            },
+            );
+            let projects = await resp.json()
+            console.log(projects)
+            let proj_list = document.getElementById('projects-list')
+            for (let i = 0; i < projects.length; i++) {
+                let project = projects[i]
+                let h2 = document.createElement('h2')
+                h2.textContent = project['name']
+                h2.classList.add('projects-title')
+                let p = document.createElement('p')
+                p.classList.add('projects-contents')
+                p.textContent = project['description']
+                let div = document.createElement('div')
+                div.classList.add('button-div')
+                div.classList.add('project-container')
+                div.appendChild(h2)
+                div.appendChild(p)
+                let a = document.createElement('a')
+                a.classList.add('projects-contents')
+                a.href = project['url']
+                a.appendChild(div)
+                proj_list.appendChild(a)
+            }
+        }
+        load_projects()
+    </script>
+    </body>
+</html>
