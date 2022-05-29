@@ -4,25 +4,28 @@ from fastapi.templating import Jinja2Templates
 from fastapi import Request
 import uvicorn
 import requests
+import threading
 import time
-import asyncio
+
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="static/templates")
 
+repos = []
+
 
 def load_projects():
-    print("Loading projects...")
-    try:
-        repos = requests.get("https://api.github.com/users/Mootfrost777/repos").json()
-        res = []
-        for repo in repos:
-            res.append(Project(repo["name"], repo["description"], repo["html_url"]))
-        return res
-    except:
-        print("Error loading projects. API request failed.")
-        return Project('Error', 'Error', 'Error')
+    while True:
+        try:
+            resp = requests.get("https://api.github.com/users/Mootfrost777/repos").json()
+            global repos
+            repos.clear()
+            for repo in resp:
+                repos.append(Project(repo["name"], repo["description"], repo["html_url"]))
+        except Exception as e:
+            print(e)
+        time.sleep(7200)
 
 
 class Project:
@@ -38,7 +41,7 @@ class Project:
 
 @app.get("/api/get_repos")
 def get_repos():
-    return load_projects()
+    return repos
 
 
 @app.get("/")
@@ -56,4 +59,5 @@ def main_page(request: Request):
     return templates.TemplateResponse("projects.html", {"request": request})
 
 
+threading.Thread(target=load_projects).start()
 uvicorn.run(app)
